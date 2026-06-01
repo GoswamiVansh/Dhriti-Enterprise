@@ -1,0 +1,80 @@
+{
+  "company_info": {
+    "name": "Dhriti Enterprise",
+    "location": "Faridabad, Haryana, India",
+    "business_type": "Trader - Wholesaler/Distributor",
+    "ceo": "K Goswami"
+  },
+  "categories": [
+    {
+      "category_name": "Door Handle",
+      "products": [
+        { "name": "Stainless Steel Mortise Handles", "price": "₹ 640/Piece" },
+        { "name": "D Shaped Glass Door Handle", "price": "₹ 525/Piece" },
+        { "name": "Stainless Steel Door Pull Handles (8 inch)", "price": "₹ 500/Piece" },
+        { "name": "H Shape Glass Door Handles", "price": "₹ 482/Piece" },
+        { "name": "Stainless Steel Door Pull Handles", "price": "₹ 166/Piece" },
+        { "name": "Aluminium Profile Handle", "price": "₹ 64/Piece" }
+      ]
+    },
+    {
+      "category_name": "Door Aldrop",
+      "products": [
+        { "name": "16mm Leg Aldrop", "price": "₹ 446/Piece" },
+        { "name": "16 Mm Stainless Steel Aldrop", "price": "₹ 280/Piece" },
+        { "name": "8 Inch Stainless Steel Aldrop", "price": "₹ 210/Piece" },
+        { "name": "14mm Stainless Steel Aldrops", "price": "₹ 145/Piece" },
+        { "name": "Stainless Steel Door Aldrop", "price": "₹ 90/Piece" }
+      ]
+    },
+    {
+      "category_name": "Soap Dish",
+      "products": [
+        { "name": "Stainless Steel Soap Dish Tumbler", "price": "₹ 490/Piece" },
+        { "name": "Matte Finish Soap Dish", "price": "₹ 450/Piece" },
+        { "name": "Stainless Steel Soap Dish", "price": "₹ 224/Piece" },
+        { "name": "ABS Double Soap Dish", "price": "₹ 64/Piece" },
+        { "name": "Plastic White ABS Soap Dish", "price": "₹ 38/Piece" }
+      ]
+    },
+    {
+      "category_name": "Curtain Bracket",
+      "products": [
+        { "name": "Brown Curtain Bracket", "price": "₹ 120/Pair" },
+        { "name": "Stainless Steel Round Shape Curtain Bracket", "price": "₹ 98/Pair" },
+        { "name": "Stainless Steel Curtain Finials", "price": "₹ 60/Pair" },
+        { "name": "Stainless Steel Curtain Bracket", "price": "₹ 58/Pair" }
+      ]
+    },
+    {
+      "category_name": "Tumbler Holder",
+      "products": [
+        { "name": "Plastic White 4 In 1 ABS Tumbler Holder", "price": "₹ 115/Piece" },
+        { "name": "ABS Toothbrush Tumbler Holder", "price": "₹ 65/Piece" }
+      ]
+    },
+    {
+      "category_name": "Wall Shelf",
+      "products": [
+        { "name": "Stainless Steel Bathroom Wall Shelf", "price": "₹ 695/Piece" },
+        { "name": "3 PCS ABS Corner Shelf", "price": "₹ 380/Piece" },
+        { "name": "ABS Wall Shelf", "price": "₹ 148/Piece" },
+        { "name": "ABS Shelf Corner Bathroom Holder", "price": "₹ 132/Piece" }
+      ]
+    },
+    {
+      "category_name": "Curtain Support",
+      "products": [
+        { "name": "Stainless Steel L Supports", "price": "₹ 64/Piece" },
+        { "name": "Stainless Steel T Support", "price": "₹ 50/Piece" }
+      ]
+    },
+    {
+      "category_name": "Door Stopper",
+      "products": [
+        { "name": "Stainless Steel Door Stopper", "price": "₹ 50/Piece" },
+        { "name": "SS Tower Bolt", "price": "₹ 34/Piece" }
+      ]
+    }
+  ]
+}
