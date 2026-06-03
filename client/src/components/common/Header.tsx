@@ -60,7 +60,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="sticky top-0 z-50 bg-brand-dark border-b border-brand-dark-border shadow-sm">
+    <header className="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
@@ -69,10 +69,10 @@ const Header = () => {
               <span className="text-brand-dark font-extrabold text-lg">DE</span>
             </div>
             <div className="hidden sm:block">
-              <p className="font-bold text-white text-sm leading-tight">
+              <p className="font-bold text-brand-dark text-sm leading-tight">
                 DHRITI
               </p>
-              <p className="text-[10px] text-gray-400 uppercase tracking-wider leading-tight">
+              <p className="text-[10px] text-gray-500 uppercase tracking-wider leading-tight">
                 Enterprise
               </p>
             </div>
@@ -84,7 +84,7 @@ const Header = () => {
               <Link
                 key={link.href}
                 to={link.href}
-                className="text-sm font-medium text-gray-300 hover:text-brand-gold transition-colors relative group"
+                className="text-sm font-medium text-gray-700 hover:text-brand-gold transition-colors relative group"
               >
                 {link.label}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-gold transition-all group-hover:w-full" />
@@ -100,7 +100,7 @@ const Header = () => {
                 placeholder="Search for products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-4 pr-10 py-2.5 border border-brand-dark-border rounded-lg text-sm focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/20 bg-brand-dark-lighter text-white placeholder-gray-500"
+                className="w-full pl-4 pr-10 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-gold focus:ring-1 focus:ring-brand-gold/20 bg-gray-50 text-gray-900 placeholder-gray-400"
               />
               <button
                 type="submit"
@@ -116,7 +116,7 @@ const Header = () => {
             {/* Mobile Search Toggle */}
             <button
               onClick={() => setSearchOpen(!searchOpen)}
-              className="md:hidden p-2 text-gray-400 hover:text-brand-gold"
+              className="md:hidden p-2 text-gray-600 hover:text-brand-gold"
             >
               <Search className="w-5 h-5" />
             </button>
@@ -125,7 +125,7 @@ const Header = () => {
             <div className="relative">
               <button
                 onClick={() => setUserMenuOpen(!userMenuOpen)}
-                className="p-2 text-gray-400 hover:text-brand-gold transition-colors"
+                className="p-2 text-gray-600 hover:text-brand-gold transition-colors"
               >
                 <User className="w-5 h-5" />
               </button>
@@ -136,21 +136,21 @@ const Header = () => {
                     className="fixed inset-0 z-40"
                     onClick={() => setUserMenuOpen(false)}
                   />
-                  <div className="absolute right-0 top-full mt-2 w-56 bg-brand-dark-lighter rounded-lg shadow-xl border border-brand-dark-border z-50 py-2">
+                  <div className="absolute right-0 top-full mt-2 w-56 bg-white rounded-lg shadow-xl border border-gray-200 z-50 py-2">
                     {userInfo ? (
                       <>
-                        <div className="px-4 py-3 border-b border-brand-dark-border">
-                          <p className="text-sm font-semibold text-white">
+                        <div className="px-4 py-3 border-b border-gray-100">
+                          <p className="text-sm font-semibold text-gray-900">
                             {userInfo.name}
                           </p>
-                          <p className="text-xs text-gray-400">
+                          <p className="text-xs text-gray-500">
                             {userInfo.email}
                           </p>
                         </div>
                         <Link
                           to="/profile"
                           onClick={() => setUserMenuOpen(false)}
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300 hover:bg-brand-dark hover:text-brand-gold"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-gold"
                         >
                           <Settings className="w-4 h-4" />
                           My Profile
@@ -158,7 +158,7 @@ const Header = () => {
                         <Link
                           to="/orders"
                           onClick={() => setUserMenuOpen(false)}
-                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300 hover:bg-brand-dark hover:text-brand-gold"
+                          className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-gold"
                         >
                           <Package className="w-4 h-4" />
                           My Orders
@@ -167,16 +167,16 @@ const Header = () => {
                           <Link
                             to="/admin/products"
                             onClick={() => setUserMenuOpen(false)}
-                            className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-300 hover:bg-brand-dark hover:text-brand-gold"
+                            className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-gold"
                           >
                             <LayoutDashboard className="w-4 h-4" />
                             Admin Panel
                           </Link>
                         )}
-                        <hr className="my-1 border-brand-dark-border" />
+                        <hr className="my-1 border-gray-100" />
                         <button
                           onClick={handleLogout}
-                          className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-red-500 hover:bg-brand-dark"
+                          className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-red-500 hover:bg-gray-50"
                         >
                           <LogOut className="w-4 h-4" />
                           Logout
@@ -187,14 +187,14 @@ const Header = () => {
                         <Link
                           to="/login"
                           onClick={() => setUserMenuOpen(false)}
-                          className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-brand-dark hover:text-brand-gold"
+                          className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-gold"
                         >
                           Login
                         </Link>
                         <Link
                           to="/register"
                           onClick={() => setUserMenuOpen(false)}
-                          className="block px-4 py-2.5 text-sm text-gray-300 hover:bg-brand-dark hover:text-brand-gold"
+                          className="block px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-brand-gold"
                         >
                           Create Account
                         </Link>
@@ -208,7 +208,7 @@ const Header = () => {
             {/* Wishlist */}
             <Link
               to="/wishlist"
-              className="p-2 text-gray-400 hover:text-brand-gold transition-colors hidden sm:block"
+              className="p-2 text-gray-600 hover:text-brand-gold transition-colors hidden sm:block"
             >
               <Heart className="w-5 h-5" />
             </Link>
@@ -216,7 +216,7 @@ const Header = () => {
             {/* Cart */}
             <Link
               to="/cart"
-              className="p-2 text-gray-400 hover:text-brand-gold transition-colors relative"
+              className="p-2 text-gray-600 hover:text-brand-gold transition-colors relative"
             >
               <ShoppingCart className="w-5 h-5" />
               {cartCount > 0 && (
@@ -229,7 +229,7 @@ const Header = () => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 text-gray-400 hover:text-brand-gold"
+              className="lg:hidden p-2 text-gray-600 hover:text-brand-gold"
             >
               {mobileMenuOpen ? (
                 <X className="w-5 h-5" />
@@ -249,7 +249,7 @@ const Header = () => {
                 placeholder="Search products..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-4 pr-10 py-3 border border-brand-dark-border rounded-lg text-sm focus:outline-none focus:border-brand-gold bg-brand-dark-lighter text-white placeholder-gray-500"
+                className="w-full pl-4 pr-10 py-3 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-brand-gold bg-gray-50 text-gray-900 placeholder-gray-400"
                 autoFocus
               />
               <button
@@ -265,14 +265,14 @@ const Header = () => {
 
       {/* Mobile Navigation */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-brand-dark-border bg-brand-dark-lighter">
+        <div className="lg:hidden border-t border-gray-200 bg-white">
           <nav className="max-w-7xl mx-auto px-4 py-4 space-y-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 to={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="block py-3 text-sm font-medium text-gray-300 hover:text-brand-gold border-b border-brand-dark-border"
+                className="block py-3 text-sm font-medium text-gray-700 hover:text-brand-gold border-b border-gray-100"
               >
                 {link.label}
               </Link>
@@ -280,7 +280,7 @@ const Header = () => {
             <Link
               to="/wishlist"
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-3 text-sm font-medium text-gray-300 hover:text-brand-gold"
+              className="block py-3 text-sm font-medium text-gray-700 hover:text-brand-gold"
             >
               Wishlist
             </Link>

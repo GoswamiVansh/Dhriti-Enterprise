@@ -12,14 +12,15 @@ export default {
     },
     extend: {
       colors: {
-        // Dhriti Enterprise brand colors - Dark Theme
         brand: {
-          dark: "#09090b", // zinc-950
-          "dark-lighter": "#18181b", // zinc-900
-          "dark-border": "#27272a", // zinc-800
+          dark: "#08140f", // Deep luxury dark forest green
+          "dark-lighter": "#0f231b", // Lighter forest green for cards/containers
+          "dark-border": "#193529", // Green-tinted borders
           gold: "#C9954C",
           "gold-light": "#E0B370",
           "gold-dark": "#A67533",
+          cream: "#F5F2EB", // Luxury warm cream
+          "cream-darker": "#EAE6DC",
         },
         // Semantic colors
         border: "hsl(var(--border))",

@@ -11,51 +11,51 @@ const AboutPage = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-brand-dark border-b border-brand-dark-border overflow-hidden">
+      <section className="relative py-20 bg-white border-b border-gray-100 overflow-hidden">
         {/* Abstract Background Shapes */}
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-brand-gold/5 blur-3xl pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-brand-gold/5 blur-3xl pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 relative z-10 text-center">
           <p className="text-brand-gold font-semibold uppercase tracking-widest mb-4">Our Story</p>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
-            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-yellow-200">Dhriti Enterprise</span>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-brand-dark mb-6">
+            About <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-gold to-brand-gold-light">Dhriti Enterprise</span>
           </h1>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-500 max-w-2xl mx-auto leading-relaxed">
             We are a premier trader, wholesaler, and distributor specializing in high-quality door hardware, bathroom accessories, and home fittings. Dedicated to bringing excellence to every home and office.
           </p>
         </div>
       </section>
 
       {/* Company Info Grid */}
-      <section className="py-16 bg-brand-dark-lighter">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             {/* Info Card 1 */}
-            <div className="bg-brand-dark border border-brand-dark-border p-8 rounded-2xl flex flex-col items-center text-center hover:border-brand-gold/50 transition-colors group">
-              <div className="w-16 h-16 bg-brand-dark-lighter rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold/10 transition-colors">
+            <div className="bg-white border border-gray-100 p-8 rounded-2xl flex flex-col items-center text-center hover:border-brand-gold/50 transition-colors group shadow-sm">
+              <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold/10 transition-colors">
                 <Briefcase className="w-8 h-8 text-brand-gold" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Business Type</h3>
-              <p className="text-gray-400">Trader - Wholesaler / Distributor</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Business Type</h3>
+              <p className="text-gray-500">Trader - Wholesaler / Distributor</p>
             </div>
 
             {/* Info Card 2 */}
-            <div className="bg-brand-dark border border-brand-dark-border p-8 rounded-2xl flex flex-col items-center text-center hover:border-brand-gold/50 transition-colors group">
-              <div className="w-16 h-16 bg-brand-dark-lighter rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold/10 transition-colors">
+            <div className="bg-white border border-gray-100 p-8 rounded-2xl flex flex-col items-center text-center hover:border-brand-gold/50 transition-colors group shadow-sm">
+              <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold/10 transition-colors">
                 <MapPin className="w-8 h-8 text-brand-gold" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Location</h3>
-              <p className="text-gray-400">Faridabad, Haryana, India</p>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Location</h3>
+              <p className="text-gray-500">Faridabad, Haryana, India</p>
             </div>
 
             {/* Info Card 3 */}
-            <div className="bg-brand-dark border border-brand-dark-border p-8 rounded-2xl flex flex-col items-center text-center hover:border-brand-gold/50 transition-colors group">
-              <div className="w-16 h-16 bg-brand-dark-lighter rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold/10 transition-colors">
+            <div className="bg-white border border-gray-100 p-8 rounded-2xl flex flex-col items-center text-center hover:border-brand-gold/50 transition-colors group shadow-sm">
+              <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-gold/10 transition-colors">
                 <User className="w-8 h-8 text-brand-gold" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Leadership</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Leadership</h3>
               <p className="text-gray-400">CEO: K Goswami</p>
             </div>
 
@@ -64,16 +64,16 @@ const AboutPage = () => {
       </section>
 
       {/* Detailed Overview */}
-      <section className="py-20 bg-brand-dark border-y border-brand-dark-border">
+      <section className="py-20 bg-white border-y border-gray-100">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             
             <div>
-              <h2 className="text-3xl font-bold text-white mb-6">Built on Trust & Quality</h2>
-              <p className="text-gray-400 leading-relaxed mb-6">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Built on Trust & Quality</h2>
+              <p className="text-gray-500 leading-relaxed mb-6">
                 Since our establishment, Dhriti Enterprise has been committed to supplying top-tier hardware solutions across India. Whether it's robust stainless steel door handles, sleek glass fittings, or durable bathroom accessories, we ensure every product meets rigorous quality standards.
               </p>
-              <p className="text-gray-400 leading-relaxed mb-8">
+              <p className="text-gray-500 leading-relaxed mb-8">
                 Operating out of Faridabad, Haryana, our extensive catalog caters to diverse requirements, ensuring that businesses, retailers, and end-consumers receive unmatched value and service.
               </p>
               
@@ -83,8 +83,8 @@ const AboutPage = () => {
                     <Calendar className="w-6 h-6 text-brand-gold" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">Member Since</p>
-                    <p className="font-semibold text-white">November 2024</p>
+                    <p className="text-sm text-gray-400">Member Since</p>
+                    <p className="font-semibold text-gray-900">November 2024</p>
                   </div>
                 </div>
                 
@@ -93,16 +93,16 @@ const AboutPage = () => {
                     <ShieldCheck className="w-6 h-6 text-brand-gold" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-500">GST Verification</p>
-                    <p className="font-semibold text-white">Verified</p>
+                    <p className="text-sm text-gray-400">GST Verification</p>
+                    <p className="font-semibold text-gray-900">Verified</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Abstract visual or image placeholder */}
-            <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden border border-brand-dark-border group">
-              <div className="absolute inset-0 bg-gradient-to-tr from-brand-dark to-brand-dark-lighter z-10 opacity-80 group-hover:opacity-60 transition-opacity"></div>
+            <div className="relative aspect-square md:aspect-[4/3] rounded-2xl overflow-hidden border border-gray-100 group">
+              <div className="absolute inset-0 bg-gradient-to-tr from-black/80 to-black/40 z-10 opacity-80 group-hover:opacity-60 transition-opacity"></div>
               <img 
                 src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80" 
                 alt="Office Space" 

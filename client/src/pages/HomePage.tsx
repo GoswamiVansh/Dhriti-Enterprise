@@ -1,11 +1,34 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { Truck, ShieldCheck, RefreshCw, Headphones } from "lucide-react";
 import api from "@/lib/axios";
 import type { IProduct, ICategory } from "@/types";
 import ProductCard from "@/components/products/ProductCard";
 import { PageSkeleton } from "@/components/common/Loader";
+
+const categoryUIConfig: Record<string, { title: string; image: string }> = {
+  "door-handle": { title: "Mortise Handles", image: "/images/category_handles.png" },
+  "door-aldrop": { title: "Aldrops", image: "/images/category_aldrops.png" },
+  "door-stopper": { title: "Door Accessories", image: "/images/category_pull_handles.png" },
+  "curtain-bracket": { title: "Curtain Brackets", image: "/images/category_brackets.png" },
+  "soap-dish": { title: "Bath Accessories", image: "/images/category_soap_dish.png" },
+};
+
+const getCategoryUI = (slug: string, name: string) => {
+  if (categoryUIConfig[slug]) {
+    return categoryUIConfig[slug];
+  }
+  if (slug.includes("handle")) return categoryUIConfig["door-handle"];
+  if (slug.includes("aldrop")) return categoryUIConfig["door-aldrop"];
+  if (slug.includes("curtain")) return categoryUIConfig["curtain-bracket"];
+  if (slug.includes("stopper") || slug.includes("support")) return categoryUIConfig["door-stopper"];
+  if (slug.includes("dish") || slug.includes("holder") || slug.includes("shelf")) return categoryUIConfig["soap-dish"];
+  
+  return {
+    title: name,
+    image: "/images/category_handles.png",
+  };
+};
 
 const HomePage = () => {
   const [featuredProducts, setFeaturedProducts] = useState<IProduct[]>([]);
@@ -43,10 +66,16 @@ const HomePage = () => {
       </Helmet>
 
       {/* Hero Banner */}
-      <section className="bg-hero-gradient text-white py-16 md:py-24 relative overflow-hidden">
-        <div className="max-w-7xl mx-auto px-4 relative z-10 grid md:grid-cols-2 gap-8 items-center">
-          <div className="animate-fade-in-up">
-            <span className="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-semibold tracking-wider mb-6">
+      <section 
+        className="relative text-white py-20 md:py-32 lg:py-40 bg-cover bg-center bg-no-repeat overflow-hidden"
+        style={{ backgroundImage: "url('/ChatGPT%20Image%20Jun%202,%202026,%2012_27_07%20AM.png')" }}
+      >
+        {/* Dark overlay for readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 to-black/35 z-0" />
+        
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
+          <div className="max-w-2xl animate-fade-in-up">
+            <span className="inline-block px-3 py-1 bg-brand-gold/20 text-brand-gold border border-brand-gold/30 rounded-full text-xs font-semibold tracking-wider mb-6">
               NEW ARRIVALS 2026
             </span>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6">
@@ -72,86 +101,69 @@ const HomePage = () => {
               </Link>
             </div>
           </div>
-          <div className="hidden md:block relative animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
-             {/* Using a placeholder since we don't have a real image asset yet */}
-             <div className="aspect-[4/3] bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 p-4 shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-500">
-               <div className="w-full h-full bg-brand-navy/50 rounded-xl flex items-center justify-center">
-                  <p className="text-white/50 font-medium">Elegant Bathroom Setting</p>
-               </div>
-             </div>
-          </div>
         </div>
       </section>
 
-      {/* Trust Badges */}
-      <section className="bg-brand-dark-lighter border-b border-brand-dark-border py-8">
-        <div className="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          {[
-            { icon: Truck, title: "Free Delivery", desc: "On orders above ₹4999" },
-            { icon: ShieldCheck, title: "Premium Quality", desc: "100% Genuine Brands" },
-            { icon: RefreshCw, title: "Easy Returns", desc: "7 Days return policy" },
-            { icon: Headphones, title: "Customer Support", desc: "Call us anytime" },
-          ].map((feature, i) => (
-            <div key={i} className="flex flex-col items-center justify-center p-4">
-              <div className="w-12 h-12 bg-brand-gold/10 rounded-full flex items-center justify-center mb-3">
-                <feature.icon className="w-6 h-6 text-brand-gold" />
-              </div>
-              <h4 className="font-semibold text-white text-sm mb-1">{feature.title}</h4>
-              <p className="text-xs text-gray-400">{feature.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* Shop by Category */}
-      <section className="py-16 bg-brand-dark">
+      <section className="py-20 bg-white border-t border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-              Shop by Category
+          <div className="text-center mb-16">
+            <h2 className="text-xl md:text-2xl font-bold text-brand-dark uppercase tracking-[0.2em] mb-2">
+              Browse by Category
             </h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">
-              Browse our extensive collection organized by category to find exactly what you need for your next project.
-            </p>
+            <div className="w-12 h-[2px] bg-brand-gold mx-auto" />
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
-            {categories.slice(0, 5).map((category) => (
-              <Link
-                key={category._id}
-                to={`/products?category=${category._id}`}
-                className="group bg-brand-dark-lighter rounded-xl p-6 text-center border border-brand-dark-border shadow-sm hover:shadow-md hover:border-brand-gold/50 transition-all"
-              >
-                <div className="w-16 h-16 mx-auto bg-brand-dark rounded-full flex items-center justify-center mb-4 group-hover:bg-brand-gold/10 transition-colors border border-brand-dark-border group-hover:border-brand-gold/30">
-                  <span className="text-xl font-bold text-brand-gold/50 group-hover:text-brand-gold">
-                    {category.name.charAt(0)}
-                  </span>
-                </div>
-                <h3 className="font-medium text-white text-sm mb-2">
-                  {category.name}
-                </h3>
-                <span className="text-xs text-brand-gold font-medium group-hover:underline">
-                  Explore Now →
-                </span>
-              </Link>
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {categories.slice(0, 5).map((category) => {
+              const ui = getCategoryUI(category.slug, category.name);
+              return (
+                <Link
+                  key={category._id}
+                  to={`/products?category=${category._id}`}
+                  className="relative aspect-[4/5] rounded-lg overflow-hidden group shadow-md hover:shadow-2xl transition-all duration-500 bg-[#164332]"
+                >
+                  {/* Background Product Image */}
+                  <img 
+                    src={ui.image} 
+                    alt={ui.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 opacity-90"
+                  />
+                  
+                  {/* Lighter green-tinted overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0e2c20]/90 via-[#164332]/30 to-transparent z-10 transition-opacity duration-300 group-hover:opacity-95" />
+                  
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 z-20 flex flex-col justify-end p-5 md:p-6">
+                    <h3 className="text-white font-bold text-sm md:text-base uppercase tracking-wider mb-2 leading-tight max-w-[90%]">
+                      {ui.title}
+                    </h3>
+                    <span className="text-[10px] text-brand-gold font-bold uppercase tracking-widest flex items-center gap-1 group-hover:text-white transition-colors duration-300">
+                      EXPLORE
+                      <span className="transform group-hover:translate-x-1 transition-transform duration-300">→</span>
+                    </span>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Featured Products */}
-      <section className="py-16 bg-brand-dark-lighter">
+      <section className="py-16 bg-white border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex justify-between items-end mb-10">
             <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-brand-dark mb-3">
                 Featured Products
               </h2>
-              <p className="text-gray-400">Handpicked premium selections for you.</p>
+              <p className="text-gray-500">Handpicked premium selections for you.</p>
             </div>
             <Link
               to="/products"
-              className="hidden md:inline-flex items-center text-sm font-semibold text-brand-gold hover:text-white transition-colors"
+              className="hidden md:inline-flex items-center text-sm font-semibold text-brand-gold hover:text-brand-dark transition-colors"
             >
               View All Products →
             </Link>

@@ -198,23 +198,6 @@ const ProductDetailsPage = () => {
                 ))}
               </div>
             )}
-
-            {/* Video */}
-            {product.videoUrl && (
-              <div className="mt-6 pt-6 border-t border-brand-dark-border">
-                <h4 className="text-sm font-semibold text-gray-300 mb-3 flex items-center gap-2">
-                  <Film className="w-4 h-4" /> 
-                  Product Video
-                </h4>
-                <div className="aspect-video bg-black rounded-lg overflow-hidden border border-brand-dark-border shadow-lg">
-                  <video 
-                    src={product.videoUrl} 
-                    controls 
-                    className="w-full h-full object-contain"
-                  />
-                </div>
-              </div>
-            )}
           </div>
 
           {/* Product Info */}
@@ -339,6 +322,23 @@ const ProductDetailsPage = () => {
 
           </div>
         </div>
+
+        {/* Video Showcase Section */}
+        {product.videoUrl && (
+          <div className="mb-16 border-t border-brand-dark-border pt-10">
+            <h2 className="text-xl md:text-2xl font-bold text-white mb-6 flex items-center gap-2 justify-center lg:justify-start">
+              <Film className="w-6 h-6 text-brand-gold" /> 
+              Product Video Showcase
+            </h2>
+            <div className="max-w-5xl mx-auto bg-black/40 rounded-2xl overflow-hidden border border-brand-dark-border/80 shadow-2xl hover:border-brand-gold/45 transition-colors duration-300">
+              <video 
+                src={product.videoUrl} 
+                controls 
+                className="w-full h-auto max-h-[70vh] block mx-auto"
+              />
+            </div>
+          </div>
+        )}
 
         {/* Tabs: Description & Reviews */}
         <div className="mb-16">

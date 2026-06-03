@@ -4,7 +4,6 @@ import { Toaster } from "react-hot-toast";
 // Components
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
-import TopBar from "@/components/common/TopBar";
 import ProtectedRoute from "@/components/common/ProtectedRoute";
 import AdminRoute from "@/components/common/AdminRoute";
 import AdminLayout from "@/components/admin/AdminLayout";
@@ -51,7 +50,6 @@ function App() {
       
       <div className="flex flex-col min-h-screen">
         <LoginPopup />
-        <TopBar />
         <Header />
         
         <main className="flex-1">

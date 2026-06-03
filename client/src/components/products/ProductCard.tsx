@@ -76,17 +76,17 @@ const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <Link
       to={`/product/${product.slug || product._id}`}
-      className="product-card group bg-brand-dark-lighter rounded-xl overflow-hidden border border-brand-dark-border hover:border-brand-gold/50 block transition-all"
+      className="product-card group bg-white rounded-xl overflow-hidden border border-gray-100 hover:border-brand-gold/50 block transition-all shadow-sm hover:shadow-md"
     >
       {/* Image */}
-      <div className="relative aspect-square bg-brand-dark overflow-hidden">
+      <div className="relative aspect-square bg-gray-50 overflow-hidden">
         <img
           src={getImageUrl(product.mainImage || product.images[0])}
           alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 mix-blend-lighten"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
           loading="lazy"
           onError={(e) => {
-            (e.target as HTMLImageElement).src = `https://placehold.co/400x400/18181b/E0B370?text=${encodeURIComponent(product.name.substring(0, 10))}`;
+            (e.target as HTMLImageElement).src = `https://placehold.co/400x400/f3f4f6/C9954C?text=${encodeURIComponent(product.name.substring(0, 10))}`;
           }}
         />
 
@@ -116,9 +116,9 @@ const ProductCard = ({ product }: ProductCardProps) => {
             e.stopPropagation();
             toast("Added to wishlist!", { icon: "❤️" });
           }}
-          className="absolute top-3 right-3 w-8 h-8 bg-brand-dark/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-brand-dark shadow-sm border border-brand-dark-border"
+          className="absolute top-3 right-3 w-8 h-8 bg-white/90 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity hover:bg-white shadow-sm border border-gray-200"
         >
-          <Heart className="w-4 h-4 text-gray-300 hover:text-brand-gold" />
+          <Heart className="w-4 h-4 text-gray-600 hover:text-brand-gold" />
         </button>
       </div>
 
@@ -130,10 +130,10 @@ const ProductCard = ({ product }: ProductCardProps) => {
               {categoryName}
             </p>
           )}
-          <h3 className="text-sm font-semibold text-white mb-1 line-clamp-1 group-hover:text-brand-gold transition-colors">
+          <h3 className="text-sm font-semibold text-gray-800 mb-1 line-clamp-1 group-hover:text-brand-gold transition-colors">
             {product.name}
           </h3>
-          <p className="text-xs text-gray-400 mb-2">{product.material}</p>
+          <p className="text-xs text-gray-500 mb-2">{product.material}</p>
 
           {/* Rating */}
           {product.numReviews > 0 && (
@@ -148,29 +148,29 @@ const ProductCard = ({ product }: ProductCardProps) => {
 
           {/* Price */}
           <div className="flex items-center gap-2 mb-3">
-            <span className="text-base font-bold text-white">
+            <span className="text-base font-bold text-gray-900">
               {formatPrice(product.price)}
             </span>
             {product.originalPrice && product.originalPrice > product.price && (
-              <span className="text-sm text-gray-500 line-through">
+              <span className="text-sm text-gray-400 line-through">
                 {formatPrice(product.originalPrice)}
               </span>
             )}
-            <span className="text-[10px] text-gray-400">{product.unit}</span>
+            <span className="text-[10px] text-gray-500">{product.unit}</span>
           </div>
         </div>
 
         <div className="mt-auto">
           {/* Add to Cart or Adjust Quantity */}
           {cartItem ? (
-            <div className="flex items-center justify-between bg-brand-dark border border-brand-gold/50 rounded-lg h-9 overflow-hidden">
+            <div className="flex items-center justify-between bg-gray-50 border border-brand-gold/50 rounded-lg h-9 overflow-hidden">
               <button 
                 onClick={handleDecrease}
                 className="w-10 h-full flex items-center justify-center text-brand-gold hover:bg-brand-gold/10 transition-colors"
               >
                 <Minus className="w-4 h-4" />
               </button>
-              <span className="font-bold text-white text-sm">{cartItem.quantity}</span>
+              <span className="font-bold text-gray-800 text-sm">{cartItem.quantity}</span>
               <button 
                 onClick={handleIncrease}
                 className="w-10 h-full flex items-center justify-center text-brand-gold hover:bg-brand-gold/10 transition-colors"
